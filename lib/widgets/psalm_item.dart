@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'package:psalmody/screens/psalm.dart';
+
 class PsalmItem extends StatelessWidget {
   final int id;
 
   PsalmItem(this.id);
 
-  void selectPsalm(BuildContext context) {}
+  void selectPsalm(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) =>Psalm(id)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,8 @@ class PsalmItem extends StatelessWidget {
           child: Center(
             child: Text(
               id.toString(),
-              style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),
+              style:
+                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),
             ),
           ),
           color: Theme.of(context).accentColor,

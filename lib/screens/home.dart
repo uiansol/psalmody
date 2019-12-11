@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:psalmody/widgets/psalm.dart';
+import 'package:psalmody/widgets/psalm_item.dart';
 
 class Home extends StatelessWidget {
   @override
