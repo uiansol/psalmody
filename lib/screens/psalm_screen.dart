@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:psalmody/psalms_data.dart';
+
 class Psalm extends StatelessWidget {
   final int id;
 
@@ -7,17 +9,19 @@ class Psalm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedPsalm = PSALMS_DATA.firstWhere((psalm) => psalm.id == id);
+
     return Scaffold(
       appBar: AppBar(
         title: Center(
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Text('Salmo ' + id.toString()),
+            child: Text(selectedPsalm.title),
           ),
         ),
       ),
       body: Center(
-        child: Text('Lorem ipsum dolor sit amet'),
+        child: Text(selectedPsalm.lyrics[0]),
       ),
     );
   }

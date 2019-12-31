@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:psalmody/screens/home.dart';
+import 'package:psalmody/screens/home_screen.dart';
 
 void main() => runApp(MyApp());
 

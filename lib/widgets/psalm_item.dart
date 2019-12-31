@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:psalmody/screens/psalm.dart';
+import 'package:psalmody/screens/psalm_screen.dart';
 
 class PsalmItem extends StatelessWidget {
   final int id;
