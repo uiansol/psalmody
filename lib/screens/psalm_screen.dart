@@ -20,9 +20,25 @@ class Psalm extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Text(selectedPsalm.lyrics[0]),
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            for (var verse in selectedPsalm.lyrics)
+              Center(
+                child: Text(
+                  verse,
+                  textScaleFactor: 1.2,
+                  textAlign: TextAlign.center,
+                ),
+              )
+          ],
+        ),
       ),
+//      body: Center(
+//        child: Text(selectedPsalm.lyrics[0]),
+//      ),
     );
   }
 }
