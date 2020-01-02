@@ -2,6 +2,42 @@ import 'package:flutter/material.dart';
 
 import 'package:psalmody/psalms_data.dart';
 
+class Lyrics extends StatelessWidget {
+  final List<String> verses;
+
+  Lyrics(this.verses);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints viewportConstraints) {
+        return SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+//              minHeight: viewportConstraints.maxHeight,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                for (var verse in verses)
+                  Center(
+                    child: Text(
+                      verse,
+                      textScaleFactor: 1.25,
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
 class Psalm extends StatelessWidget {
   final int id;
 
@@ -21,24 +57,8 @@ class Psalm extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            for (var verse in selectedPsalm.lyrics)
-              Center(
-                child: Text(
-                  verse,
-                  textScaleFactor: 1.2,
-                  textAlign: TextAlign.center,
-                ),
-              )
-          ],
-        ),
+        child: Lyrics(selectedPsalm.lyrics),
       ),
-//      body: Center(
-//        child: Text(selectedPsalm.lyrics[0]),
-//      ),
     );
   }
 }
